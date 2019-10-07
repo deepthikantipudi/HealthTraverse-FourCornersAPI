@@ -30,17 +30,61 @@ public class FCHealthGL {
 	
 	@Column(name="GL")
 	private long glucoseLevel;
+	@Column(name="DAY")
+	private Integer day;
+	
+	@Column(name="MONTH")
+	private Integer month;
+	
+	@Column(name="YEAR")
+	private Integer year;
+	public FCHealthGL(long pid, Date glDate, long glucoseLevel, Integer day, Integer month, Integer year) {
+		super();
+		this.pid = pid;
+		this.glDate = glDate;
+		this.glucoseLevel = glucoseLevel;
+		this.day = day;
+		this.month = month;
+		this.year = year;
+	}
 
 	public FCHealthGL() {
 		super();
 	}
 
-	public FCHealthGL(long pid, Date glDate, long glucoseLevel) {
-		super();
-		this.pid = pid;
-		this.glDate = glDate;
-		this.glucoseLevel = glucoseLevel;
+	
+	public Integer getDay() {
+		return day;
 	}
+
+
+	public void setDay(Integer day) {
+		this.day = day;
+	}
+
+
+	public Integer getMonth() {
+		return month;
+	}
+
+
+	public void setMonth(Integer month) {
+		this.month = month;
+	}
+
+
+	public Integer getYear() {
+		return year;
+	}
+
+
+	public void setYear(Integer year) {
+		this.year = year;
+	}
+
+
+
+
 
 	public long getPid() {
 		return pid;
@@ -68,7 +112,9 @@ public class FCHealthGL {
 
 	@Override
 	public String toString() {
-		return "FCHealth_GL [pid=" + pid + ", glDate=" + glDate + ", glucoseLevel=" + glucoseLevel + "]";
+		return "FCHealthGL [id=" + id + ", pid=" + pid + ", glDate=" + glDate + ", glucoseLevel=" + glucoseLevel
+				+ ", day=" + day + ", month=" + month + ", year=" + year + "]";
 	}
+
 	
 }

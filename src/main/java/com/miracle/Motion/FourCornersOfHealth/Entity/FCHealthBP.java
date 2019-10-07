@@ -35,6 +35,16 @@ public class FCHealthBP {
 	
 	@Column(name="LBP")
 	private long lowBP;
+	@Column(name="DAY")
+	private Integer day;
+	
+	@Column(name="MONTH")
+	private Integer month;
+	
+	@Column(name="YEAR")
+	private Integer year;
+
+	
 
 	public FCHealthBP() {
 		super();
@@ -46,12 +56,40 @@ public class FCHealthBP {
 		this.lowBP = lowBP;
 	}
 
-	public FCHealthBP(long pid, Date bpDate, long highBP, long lowBP) {
+	
+
+	public FCHealthBP(long pid, Date bpDate, long highBP, long lowBP, Integer day, Integer month, Integer year) {
 		super();
 		this.pid = pid;
 		this.bpDate = bpDate;
 		this.highBP = highBP;
 		this.lowBP = lowBP;
+		this.day = day;
+		this.month = month;
+		this.year = year;
+	}
+	public Integer getDay() {
+		return day;
+	}
+
+	public void setDay(Integer day) {
+		this.day = day;
+	}
+
+	public Integer getMonth() {
+		return month;
+	}
+
+	public void setMonth(Integer month) {
+		this.month = month;
+	}
+
+	public Integer getYear() {
+		return year;
+	}
+
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 
 	public long getId() {
@@ -96,8 +134,10 @@ public class FCHealthBP {
 
 	@Override
 	public String toString() {
-		return "FCHealthBP [id=" + id + ", pid=" + pid + ", bpDate=" + bpDate + ", highBP=" + highBP + ", lowBP="
-				+ lowBP + "]";
+		return "FCHealthBP [pid=" + pid + ", bpDate=" + bpDate + ", highBP=" + highBP + ", lowBP=" + lowBP + ", day="
+				+ day + ", month=" + month + ", year=" + year + "]";
 	}
+
+	
 
 }

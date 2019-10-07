@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.miracle.Motion.FourCornersOfHealth.Entity.AverageCholestrolEntity;
+import com.miracle.Motion.FourCornersOfHealth.Entity.AverageGlucoseEntity;
 import com.miracle.Motion.FourCornersOfHealth.Entity.FCHealthGL;
 import com.miracle.Motion.FourCornersOfHealth.Entity.FCHealthWeight;
 import com.miracle.Motion.FourCornersOfHealth.Repos.FCHealthGLRepository;
@@ -70,6 +72,19 @@ public class FCHealthGLContoller {
 //		   else
 //			    return new ResponseEntity<>("No Patient", HttpStatus.BAD_REQUEST);
 //	   }
+	   @GetMapping(value="/AverageGL/{patientId}/{year}", produces=MediaType.APPLICATION_JSON_VALUE)
+	   public List<AverageGlucoseEntity> getAverageGlucoseValues(@PathVariable("patientId") long patientId,@PathVariable("year") int year,@Value("${avgGL}") String query) throws Exception{
+		   List<AverageGlucoseEntity> result = glRepository.findGlucoseAverageValues(patientId, query, year);
+		   if(!(result.isEmpty())) {
+			   
+			  System.out.println("INSIDE coNTROLLER:"+result);
+			   return result;
+			   //return new ResponseEntity<>((FCHealthWeight)result, HttpStatus.OK);
+		   }
+		   else
+			    //return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		   return null;
+	   }
 	
 
 }
