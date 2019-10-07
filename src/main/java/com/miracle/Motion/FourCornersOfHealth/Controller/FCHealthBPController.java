@@ -45,7 +45,7 @@ public class FCHealthBPController {
 	   public FCHealthBP newFCHealthBP(@RequestBody FCHealthBP fchBP) {
 		   fchBP.setBpDate(new Date());
 		   fchBP.setPid(2);
-		   fchBP.setId(2);
+//		   fchBP.setId(2);
 		  // System.out.println(new Date());
 		   return bpRepository.save(fchBP);
 	   }
